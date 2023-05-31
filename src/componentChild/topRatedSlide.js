@@ -15,7 +15,7 @@ export default function TopRatedSlide(props){
         fetch(`https://api.themoviedb.org/3/${props.movie}/${props.id}/videos?api_key=efc42faadb8a20858df7818520bb9d80&language=en-US&name&append_to_response=videos`)
         .then(response => response.json())
         .then(data=> setGetVideo(data.results[0]))
-      },[props.id])
+      },[props.id , props.movie])
 
     function hoverTrue(){
         setHover(true , 300 ) 
