@@ -62,7 +62,7 @@ export default function PrimarySlideMovies(){
           <>
           {movie.poster_path && <VideoList
             key={index}
-            movie={movie.movie}
+            movie={'movie'}
             id={movie.id}
             url={movie.backdrop_path===null ?`https://image.tmdb.org/t/p/original/${movie.poster_path}` :`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             isFavorite={movie.isFavorite}

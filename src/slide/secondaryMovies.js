@@ -91,7 +91,7 @@ export default function SlideSecondaryMovies(){
             {movie.film.map((movie,index)=>{
               return(
                 <Movie
-                movie={movie.movie}
+                movie={'movie'}
                 key={index}
                 ids={movie.ids}
                 id={movie.id}
