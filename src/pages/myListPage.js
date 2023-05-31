@@ -12,7 +12,7 @@ export default function MyListPage(){
     
         return  (
              <TopRatePage
-               movie={movie.movie}
+               movie={movie.movie === 'Movie' ? 'movie' : movie.movie}
                key={index}
                id={movie.id}
                url={`https://image.tmdb.org/t/p/original/${movie.img}`}
