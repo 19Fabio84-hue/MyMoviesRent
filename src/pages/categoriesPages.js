@@ -19,7 +19,7 @@ export default function CategoriesPage(){
               return (<>
             {movie.poster_path &&<TopRatePage
             key={index}
-            movie={movie.movie}
+            movie={movie.movie === 'Movie' ? 'movie' : movie.movie}
             id={movie.id}
             ids={movie.ids}
             url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

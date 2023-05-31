@@ -15,7 +15,7 @@ export default function TopRatePage(props){
       fetch(`https://api.themoviedb.org/3/${props.movie}/${props.id}?api_key=efc42faadb8a20858df7818520bb9d80&vote_average`)
         .then(response => response.json())
         .then(data=> setGenresDetail(data.genres.map(movie=> movie).slice(0,3)))  
-   } ,[props.id])  
+   } ,[props.movie , props.id])  
     function hoverTrue(){
       setHover(true ,700)         
     }

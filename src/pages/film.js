@@ -18,7 +18,7 @@ export default function Film(){
           {movie.poster_path && <TopRatePage 
            key={index}
             id={movie.id}
-            movie={movie.movie}
+            movie={movie.movie === 'Movie' ? 'movie' : movie.movie}
             url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
             isFavorite={movie.isFavorite}
             title={movie.title}

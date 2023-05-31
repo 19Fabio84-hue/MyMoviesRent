@@ -146,7 +146,7 @@ export default function InfoMoviesPage(){
                 {movie.poster_path && <TopRated
                         key={index}
                         id={movie.id}
-                        movie={'Movie'}
+                        movie={'movie'}
                         url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                         isFavorite={movie.isFavorite}
                         title={movie.title}

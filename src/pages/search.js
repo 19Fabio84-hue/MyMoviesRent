@@ -29,7 +29,7 @@ useEffect(()=>{
           {movie.poster_path && 
            <TopRatePage
            key={index}
-           movie={'Movie'}
+           movie={'movie'}
            id={movie.id}
            ids={movie.ids}
            url={movie.poster_path === null ?`https://image.tmdb.org/t/p/original/${movie.backdrop_path}` :`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
