@@ -1,0 +1,75 @@
+.categories-flex{
+    margin: 2em;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+.categories-ctn{
+    height: 180px;
+    width: 350px;
+    margin: 2;
+    border-radius: 20px;    
+    display: flex;
+    align-items:last baseline;
+    justify-content: center;
+}
+.categories-ctn:hover{
+    transform: scale(1.1);
+}
+
+.categories-ctn > h1 {
+    color: #FFF;    
+    margin-bottom: 1em;
+    text-shadow:  2px 2px 5px rgb(20, 19, 19);;
+}
+.TopRated{
+    background-image: linear-gradient( 135deg, #FFD26F 10%, #3677FF 100%);
+}
+.ActionAdventure{
+    background-image: linear-gradient( 135deg, #FFDB01 10%, #0E197D 100%);
+}
+.Animation{
+    background-image: linear-gradient( 135deg, #81FFEF 10%, #F067B4 100%);
+}
+.Comedy{
+    background-image: linear-gradient( 135deg, #1ad6ca 10%, #0E197D 100%);
+}
+.Crime{
+    background-image: linear-gradient( 135deg, #0b504b 10%, #4754ca 100%);
+}
+.Documentary{
+    background-image: linear-gradient( 135deg, #063b04 10%, #0de8a7 100%);
+}
+.Drama{
+    background-image: linear-gradient( 135deg, #5c5843 10%, #0e7d10 100%);
+}
+.Family{
+    background-image: linear-gradient( 135deg, #743574 10%, #47037e 100%);
+}
+.Fantasy{
+    background-image: linear-gradient( 135deg, #011588 10%, #0e7d10 100%);
+}
+.History{
+    background-image: linear-gradient( 135deg, #000108 10%, #023f74 100%);
+}
+.Horror{
+    background-image: linear-gradient( 135deg, #63386b 10%, #2f003b 100%);
+}
+.Music{
+    background-image: linear-gradient( 135deg, #1a48d3 10%, #2f003b 100%);
+}
+.Mistery{
+    background-image: linear-gradient( 135deg, #034490 10%, #2f003b 100%);
+}
+.Romance{
+    background-image: linear-gradient( 135deg, #a49a9b 10%, #820036 100%);
+}
+.TvMovie{
+    background-image: linear-gradient( 135deg, #27f802 10%, #820036 100%);
+}
+.Thriller{
+    background-image: linear-gradient( 135deg, #74e870 10%, #820036 100%);
+}
+.Western{
+    background-image: linear-gradient( 135deg, #442c00 10%, #c9c49c 100%);
+}

@@ -1,0 +1,155 @@
+  /* DOTS  */
+.slick-dots li button{
+   padding: 2px;
+   margin: 0 7px;
+}
+.slick-dots li
+{
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+    padding: 0;
+    color: #fff;
+    cursor: pointer;
+}
+.slick-dots li.slick-active button:before{
+  transform: scale(1.7);
+  opacity: .65;
+  color: #fff;
+  background: #fff;
+}
+.slick-dots li button:before{
+  opacity: .45;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+    font-family: 'slick';
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    content: '';
+    box-shadow: 5px 5px 10px rgb(90, 87, 87),5px -5px 10px rgb(92, 90, 90),-5px 5px 10px rgb(94, 93, 93);
+   /* border: 1px solid rgb(45, 43, 43); */
+}
+
+.default > button{
+  color: #fff;
+  background-color: #fff;
+} 
+    /* BUTTON  */
+.next-topRated{
+  font-size: 3rem;
+  height: 60px;
+  position: absolute;
+  top: 200px;
+  right: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(38, 37, 37,0.5);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.7s;
+  z-index: 251;
+} 
+.prev-topRated{
+  font-size: 3rem;
+  height: 60px;
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(38, 37, 37,0.5);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.7s;
+  z-index: 251;
+} 
+.next-topRated:hover , .prev-topRated:hover{
+  transform: scale(1.3);
+}   
+ .slide-movie-ctn-TopRated-topRated{
+   position: relative;
+   z-index: 0;
+   height: 700px;
+   margin-top: 5em;
+ }
+ .slider-class-movie-topRated-big{
+  margin-top: 8em;
+ }
+ .slide-movie-ctn-TopRated{
+   position: relative;
+   z-index: 251;
+ }
+ .slide-movie-ctn-categories{
+   position: relative;
+   z-index: 248;
+ }
+ .slide-movie-ctn-ActionAdventure{
+     position: relative;
+ z-index: 249;
+
+ }
+ .slide-movie-ctn-Animation{
+    position: relative;
+    z-index: 248;
+ }
+ .slide-movie-ctn-Comedy{
+    position: relative;
+    z-index: 247;
+ }
+ .slide-movie-ctn-Crime{
+   position: relative;
+    z-index: 244;
+}
+ .slide-movie-ctn-Documentary{
+   position: relative;
+    z-index: 243;
+}
+ .slide-movie-ctn-Drama{
+   position: relative;
+    z-index: 242;
+}
+.slide-movie-ctn-Family{
+  position: relative;
+    z-index: 241;
+}
+.slide-movie-ctn-Fantasy{
+  position: relative;
+    z-index: 240;
+}
+.slide-movie-ctn-History{
+  position: relative;
+    z-index: 239;
+}
+.slide-movie-ctn-Horror{
+  position: relative;
+    z-index: 238;
+}
+.slide-movie-ctn-Music{
+  position: relative;
+    z-index: 237;
+}
+.slide-movie-ctn-Mistery{
+  position: relative;
+    z-index: 236;
+}
+.slide-movie-ctn-Romance{
+  position: relative;
+    z-index: 235;
+}
+.slide-movie-ctn-TvMovie{
+  position: relative;
+    z-index: 234;
+}
+.slide-movie-ctn-Thriller{
+  position: relative;
+    z-index: 233;
+}
+.slide-movie-ctn-Western{
+  position: relative;
+    z-index: 232;
+}

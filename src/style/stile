@@ -1,0 +1,49 @@
+/* background-color: rgb(5, 2, 14);
+color : #FFF
+color : #FF000 */
+
+        /* Sfondo icone */
+/* background-color: rgb(59, 59, 59,0.3) */
+
+       
+   
+    
+    /* Voti */
+
+/* .vote-ctn{
+    z-index: 2;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(to left ,#01641b 80%,#202020 10%,#202020);
+    border: 2px solid rgb(43, 43, 43);
+    border-radius: 100%;
+    
+  }
+  .green{
+    background: linear-gradient(to left ,#455e04 70%,#202020 10%,#202020);
+  }
+  .yellow{
+    background: linear-gradient(to left ,#7e8c02 50%,#202020 20%,#202020);
+  }
+  .red{
+    background: linear-gradient(to left ,#FF0000 30%,#202020 10%,#202020);
+  }
+  .black{
+    background: rgb(43, 43, 43,0.5);
+  }
+   
+  .vote{
+    font-size: 1rem;
+    width: 50px;
+    text-align: center;
+    padding: 15px 10px 15px 10px;  
+    border-radius: 30px;
+    color: #FFF;
+    background-color: black;
+  } */
