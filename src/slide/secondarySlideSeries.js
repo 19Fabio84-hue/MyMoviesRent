@@ -127,7 +127,7 @@ export default function SlideSecondarySeries(){
             {movie.series.map((movie,index)=>{
               return(
                 <TopRatedSlide
-                movie={movie.movie}
+                movie={'tv'}
                 key={index}
                 ids={movie.ids}
                 id={movie.id}
