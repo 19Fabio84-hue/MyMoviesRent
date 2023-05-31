@@ -64,7 +64,7 @@ export default function PrimarySlideSeries(){
             date={movie.date}
             vote={movie.vote_average}
             overview={ movie.overview}
-            state={{search : null ,type:null ,name : null , title: 'Home'}}
+            state={{search : 'tv' ,type:'/' ,name : null , title: 'Home'}}
              itemCart={{id:movie.id , isFavorite : movie.isFavorite , img : `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
                        vote : movie.vote_average ,  title : movie.title ,date : movie.release_date ,overview : movie.overview, price:2.99 ,quantity : 1 , movie:movie.movie }} />}
        </> )

@@ -1,4 +1,4 @@
-import React , {useState , useContext}  from 'react'
+import React , { useContext }  from 'react'
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -103,7 +103,7 @@ export default function SlideSecondarySeries(){
                 vote={movie.vote_average}
                 overview={ movie.overview }
                 genres={movie.genre_ids}
-                state={{search : null ,type:null ,name : null , title: 'Home'}}
+                state={{search : 'tv' ,type:'/' ,name : null , title: 'Home'}}
                  itemCart={{id : movie.id , isFavorite : movie.isFavorite , img : `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
                             title : movie.title ,overview : movie.overview , vote : movie.vote_average , date : movie.release_date,
                             price:2.99 ,quantity : 1 , movie:movie.movie }} />
@@ -140,7 +140,7 @@ export default function SlideSecondarySeries(){
                 vote={movie.vote_average}
                 overview={ movie.overview }
                 genres={movie.genre_ids}
-                state={{search : null ,type:null ,name : null , title: 'Home'}}
+                state={{search : 'tv' ,type:'/' ,name : null , title: 'Home'}}
                  itemCart={{id : movie.id , isFavorite : movie.isFavorite , img : `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
                             title : movie.title ,overview : movie.overview , vote : movie.vote_average , date : movie.release_date,
                             price:2.99 ,quantity : 1 , movie:movie.movie }} />

@@ -65,14 +65,14 @@ import "../style/videoList.css";
             <div className="slide-title-ctn">                
                <h1 className="slide-title">{props.title}</h1><div className={props.vote >= 7.5 ? 'vote-ctn':props.vote >=6.7 ? 'vote-ctn green' : props.vote >= 5.9 ? 'vote-ctn yellow' : props.vote >=4.5 ? 'vote-ctn red' : 'vote-ctn black'  }><span className="vote">{props.vote}%</span></div>
                {addedToCart()}
-               <Link to={`/movie/${props.id}`} state={props.state} className="slide-link" onMouseEnter={hoverdTrueDetail} onMouseLeave={hoveredFalseDetail} >
+               <Link to={`/${props.movie}/${props.id}`} state={props.state} className="slide-link" onMouseEnter={hoverdTrueDetail} onMouseLeave={hoveredFalseDetail} >
                 <i className="ri-spy-line" ></i>
                </Link>
                 {hoveredDetail && <p className="slide-link-p">Details</p>}  
                  {heart()}
             </div>
             <div className="img-ctn" style={{backgroundColor:'black'}}>
-              <img className="img" src={props.url} />             
+              <img  className="img" src={props.url} alt="locandina-film" />             
             </div>            
           </div>      
     </div>

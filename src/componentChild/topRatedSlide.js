@@ -10,20 +10,20 @@ export default function TopRatedSlide(props){
     const [hover , setHover] = useDelayedState(false)
     const [hoverVideo ,setHoverVideo] = useDelayedState(false)
     const [ getVideo , setGetVideo] = useState('')
+   
     useEffect(()=>{
         fetch(`https://api.themoviedb.org/3/${props.movie}/${props.id}/videos?api_key=efc42faadb8a20858df7818520bb9d80&language=en-US&name&append_to_response=videos`)
         .then(response => response.json())
         .then(data=> setGetVideo(data.results[0]))
       },[props.id])
+
     function hoverTrue(){
         setHover(true , 300 ) 
-        setHoverVideo(true,1000 )  
-        // props.hoverTrue()      
+        setHoverVideo(true,1000 )     
       }
       function hoverFalse(){
          setHover(false , -300 )
          setHoverVideo(false ,-1000 )
-        //  props.hoverFalse()
         }
     function cart(){
         const isAdded = CartMovie.find(movie => movie.id === props.id)

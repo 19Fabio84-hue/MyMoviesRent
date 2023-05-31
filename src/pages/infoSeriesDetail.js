@@ -185,6 +185,7 @@ import '../style/infoPages.css'
          const [series ,setSeries] = useState(false)
          function setMovie(){setSeries(false)}
         function setTv(){setSeries(true)}
+        console.log(location)
         return (<>
            <Header movies={setMovie} series={setTv} value={series} />
        <div className="video-list-info" key={movieDetail.id} >
