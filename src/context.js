@@ -653,7 +653,6 @@ const westernSeriesFull = [...westernSeries,...westernSeriesTwo]
     function emptyCart(){
       setCartMovie([])
     }
-      //  LOGIN
    
    
     const categoriesArray = [

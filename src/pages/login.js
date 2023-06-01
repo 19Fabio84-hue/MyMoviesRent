@@ -1,23 +1,18 @@
-import React , {useState , useEffect} from 'react'
+import React , {useState , useEffect ,useContext} from 'react'
 import { Link , useNavigate, useLocation } from 'react-router-dom'
 import { Context } from '../context'
 import '../style/header.css'
 
 export default function Login(){
-    const { users,setUsers , setUserActive } = React.useContext(Context)
+    const { users,setUsers , setUserActive } = useContext(Context)
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location)
     const [erroeMessage , setErrorMessage] = useState('')
     const [createAccount , setCreateAccount] = useState(false)
     const [userName ,setUserName] = useState('')
     const [password ,setPassword] = useState('')
     const [email , setEmail] = useState('')
-    // const [users , setUsers] = useState([{
-    //     username : 'Bob' ,
-    //     email : 'bob@gmail.com',
-    //     password : '1234'
-    // }])
+   
     
     const handleLogin = () => {
         const findUsers = users.find(user => user.email === email && user.password === password )
@@ -44,8 +39,8 @@ export default function Login(){
     }
     useEffect(() => {
         // Salvataggio dei dati nel localStorage quando l'array degli utenti cambia
-        localStorage.setItem('users', JSON.stringify(users));
-      }, [users]);
+        localStorage.setItem('users', JSON.stringify(users))
+      }, [users])
 
     return(
         <div className='login-ctn'>
