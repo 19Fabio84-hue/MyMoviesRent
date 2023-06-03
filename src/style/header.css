@@ -103,6 +103,13 @@
         translate: 0px -15px;
     transition :translate 1.5s ;      
 }
+@media(max-width:1675px){
+    .header-ctn{
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
 .header-option{
     width: 95%;
     display: flex;
@@ -118,6 +125,12 @@
     color: #cf4d4d;
     font-style: italic;
 }
+.logo-small{
+    text-decoration: none;
+    color: #cf4d4d;
+    font-style: italic;
+    display: none;
+}
 .header-title-ctn > h1 {
     color:#cf4d4d;
    align-self: center;
@@ -128,6 +141,26 @@ h1 > span{
     color: #FFF;
     font-size: 1rem;
     font-style: italic;
+}
+@media(max-width:1185px){
+    .logo{
+        font-size: 0.8rem;
+        align-self: center;
+    }
+}
+@media(max-width:992px){
+    .logo{
+        font-size: 0.6rem;
+        align-self: center;
+    }
+}
+@media(max-width:1019px){
+    .film-link , .series-link{
+        display: none;
+    }
+}
+@media(max-width:808px){
+    .logo{display: none;}.logo-small{display: block;}
 }
 .header-link{
     
@@ -164,7 +197,7 @@ h1 > span{
 }
 .ctn-button-home{
     position: absolute;
-    bottom: -100px;
+    bottom: -102px;
     height: 100px;
     left: 0%;
     display: grid;
@@ -222,7 +255,8 @@ h1 > span{
     color: #FFF;
     margin: 0 3em 0 0;
     height: 50px;
-    
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;    
 }
 .categorie-absolute:hover{
     margin: 0 2em 0 -1em;
@@ -286,7 +320,28 @@ h1 > span{
     display: flex;
     align-items: center;
     position: relative;
-}   
+}
+@media(max-width:1153px){
+    .categorie-absolute-home,.header-link{
+        font-size: 0.9rem;
+    }.categorie-absolute{
+        padding: 20px 10px;
+    }
+    .categorie-absolute > .categories-description{
+        bottom: -320px;
+        left: -238%;
+        padding: 20px 10px;
+        width: 700px;
+    }.categories-description>a{
+        width: 150px;
+    }
+}
+@media(max-width:757px){
+    .categorie-absolute-home ,.categorie-absolute , .header-link > a{margin-right: .5em;}
+    .categorie-absolute:hover{padding: .5em;padding-left: .3em ;margin-right: 0.6em;margin-left: 0.4em;}
+    .categorie-absolute > .categories-description{width: auto;left: -210%;}
+}
+
          /* CART  */
 .header-cart{
     position: relative;
@@ -343,13 +398,28 @@ h1 > span{
     padding: 2px 6px;
     border-radius: 20px;
 }
+@media(max-width:1100px){
+    .white{
+        font-size: 1.3rem;
+    }.icon-header-profile{
+        margin-right: 2em;
+    }.cart-length{
+        font-size: 0.8rem;
+    }.img-cartMovie-ctn{  
+        top: 35px;
+        left: -5px;        
+    }
+    .img-cartMovie-ctn-hovered{  
+        top: 35px;
+        left: -62px;
+    }
+}
    /* PROFILE  */
 .profile-relative{
        position: relative;
        display: flex;
        flex-direction: column;
        align-items: center;
-       width: 120px;
    }
 .img-profile{
     width: 50px;
@@ -378,6 +448,28 @@ h1 > span{
     border-radius: 10px;
     cursor: pointer;
 }
+.profile-hover{
+    position: absolute;
+    bottom: -91px;
+    right: -42px;
+    background-color: rgb(28, 29, 34);
+    padding: 30px;
+    border-radius: 15px;
+}
+@media(max-width:1100px){
+    .img-profile , .img-profile-hover{
+        width: 40px;
+        height: 40px;
+        margin-left: 1em;
+    }.log-out{
+        width: 60px;
+        font-size: 0.7rem;
+    }.profile-hover{
+        padding: 15px;
+        bottom: -56px;
+        right: -25px;
+    }    
+}
 .user-active{
     color: #a4a4a4;
     margin-left: 1.5em;
@@ -395,14 +487,7 @@ h1 > span{
     align-self: center;
     background-color: rgb(28, 29, 34)
 }
-.profile-hover{
-    position: absolute;
-    bottom: -93px;
-    right: -30px;
-    background-color: rgb(28, 29, 34);
-    padding: 30px;
-    border-radius: 15px;
-}
+
    /* SEARCH  */
    .searchMovie-ctn{
    padding-bottom: 300px;
@@ -411,7 +496,7 @@ h1 > span{
    }
 .form-search{
      position: absolute;
-     bottom: -168%;
+     bottom: -163%;
      left: -290%;
       z-index: 1050;
       width: 400%;
@@ -452,9 +537,16 @@ h1 > span{
     padding: 8px 15px;
     border-radius: 15px;
     position: absolute;
-    top: 27%;
+    top: 26%;
     right: 5.5%;
 }
+@media(max-width:1100px){
+    .form-search{
+        height: 80px;
+    }.search-clear{
+        top: 16%;
+    }
+   }
 .search-clear:hover{
     color: black;
     background-color: #FFF;

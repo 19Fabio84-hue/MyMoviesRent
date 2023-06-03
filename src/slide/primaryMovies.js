@@ -1,11 +1,11 @@
-import React  from 'react'
+import React , {useState , useEffect} from 'react'
 import Slider from "react-slick";
 import { Context } from '../context';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../style/TopRated.css'
 import '../style/slideStyle.css'
-import VideoList from '../componentChild/slide';
+import Slide from '../componentChild/slide';
 import '../style/header.css'
     
 export default function PrimarySlideMovies(){
@@ -31,6 +31,33 @@ export default function PrimarySlideMovies(){
         );
       }
      
+    const [handleCenterMode , setHandleCenterMode] = useState(true)
+    useEffect(() => {
+      const updateSlidesToShow = () => {
+        if(window.innerWidth <= 1500){
+          setHandleCenterMode(false)
+        } else{
+          setHandleCenterMode(true)
+        }
+        //  else {
+        //   setHandleCenterMode(true)
+        //   setSlidesToShow(5);
+        // }     
+      
+      }    
+      // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+      window.addEventListener('resize', updateSlidesToShow);
+    
+      // Richiama la funzione di aggiornamento iniziale
+      updateSlidesToShow();
+    
+      // Rimuovi il listener quando il componente viene smontato
+      return () => {
+        window.removeEventListener('resize', updateSlidesToShow);
+      };
+      
+    }, [handleCenterMode]);
+     
     const settings = {
        pauseOnHover: true,
         dots: true,
@@ -45,7 +72,7 @@ export default function PrimarySlideMovies(){
             <ul style={{ margin: "0px" }}> {dots} </ul>
           </div>
         ),  
-        centerMode: true,
+        centerMode: handleCenterMode,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -60,7 +87,7 @@ export default function PrimarySlideMovies(){
      const slideMovie = popularMovie.map((movie , index )=> {
         return (
           <>
-          {movie.poster_path && <VideoList
+          {movie.poster_path && <Slide
             key={index}
             movie={'movie'}
             id={movie.id}

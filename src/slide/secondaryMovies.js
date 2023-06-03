@@ -1,4 +1,4 @@
-import React  from 'react'
+import React , {useState , useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -44,8 +44,49 @@ export default function SlideSecondaryMovies(){
           <i className="ri-arrow-left-s-line"></i>
         </button>
       );
-    }   
-  
+    }  
+    // funzione cambio SlideToShow  
+    const [slidesToShow, setSlidesToShow] = useState(5);
+    const [handleCenterMode , setHandleCenterMode] = useState(true)
+    const [handlePadding , setHandlePadding] = useState('30px')
+    useEffect(() => {
+      const updateSlidesToShow = () => {
+        if(window.innerWidth <= 600){
+          setHandlePadding('55px')
+          setHandleCenterMode(true)
+          setSlidesToShow(1)
+        } else if (window.innerWidth <= 800) {
+          setHandleCenterMode(false)
+          setSlidesToShow(2);
+        } else if (window.innerWidth <= 1130) {
+          setHandleCenterMode(false)
+          setSlidesToShow(3)
+        } else if(window.innerWidth <= 1500){
+          setHandleCenterMode(false)
+          setSlidesToShow(3.8)
+        }
+        else{
+          setSlidesToShow(5)
+          setHandleCenterMode(true)
+        }
+        //  else {
+        //   setHandleCenterMode(true)
+        //   setSlidesToShow(5);
+        // }     
+      
+      }    
+      // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+      window.addEventListener('resize', updateSlidesToShow);
+    
+      // Richiama la funzione di aggiornamento iniziale
+      updateSlidesToShow();
+    
+      // Rimuovi il listener quando il componente viene smontato
+      return () => {
+        window.removeEventListener('resize', updateSlidesToShow);
+      };
+      
+    }, [slidesToShow]);
     const settingsTopRated = {      
       pauseOnHover: true,
        dots: false,
@@ -63,9 +104,10 @@ export default function SlideSecondaryMovies(){
       dots: false,
       infinite: true,   
       speed: 500,
-      slidesToShow: 5,
+      slidesToShow: slidesToShow,
       slidesToScroll: 1,
-      centerMode:true,
+      centerPadding:handlePadding ,
+      centerMode:handleCenterMode,
       autoplay: false,
       autoplaySpeed: 6000,
       heigth:400,
@@ -87,10 +129,10 @@ export default function SlideSecondaryMovies(){
         <Link to={`/${movie.id}`} className='toprated-link' >See more </Link>
         <Link to={`/${movie.id}`} className='toprated-link' ><i className="ri-arrow-right-s-line link-icon" ></i></Link>        
         </div>
-          <Slider {...settingSlide}  className='slider-class-movie' >
+          <Slider {...settingSlide}   className='slider-class-movie' >
             {movie.film.map((movie,index)=>{
               return(
-                <Movie
+                <Movie className='proviamo'
                 movie={'movie'}
                 key={index}
                 ids={movie.ids}
@@ -162,7 +204,7 @@ export default function SlideSecondaryMovies(){
         <h1 className='title-slide-red'>My Movies<span className='span-slide'>rent</span></h1>
         <h1 className='toprated-title'>Categories</h1>                
         </div>
-          <Slider {...settingSlide} className='slider-class-movie' >
+          <Slider {...settingSlide} slidesToShow={slidesToShow}  className='slider-class-movie' >
            {categoriesMap} 
           </Slider>
         </div> 

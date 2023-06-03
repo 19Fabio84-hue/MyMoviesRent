@@ -76,6 +76,7 @@ export default function TopRatePage(props){
                       {movie.name === 'Action & Adventure'? 'Action' :  
                        movie.name === 'Sci-Fi & Fantasy' ? 'Sci-Fi&Fantasy':
                        movie.name === 'War & Politics' ? 'War&Politics' :
+                       movie.name === 'Science Fiction' ? 'Sci-Fi' :
                         movie.name}</Link> )
         return (
             

@@ -85,7 +85,7 @@ function Movie(props){
                             props.vote >= 5.9 ? 'vote-ctn-top yellow' : props.vote >=4.5 ? 'vote-ctn-top red' :
                             'vote-ctn-top black'  }><span className="vote-top">{props.vote}%</span>
                  </div> 
-                 <div   onMouseLeave={hoverFalse}>
+                 <div  className='top-img-ctn'  onMouseLeave={hoverFalse}>
                             <img onMouseEnter={hoverTrue} className={hover? 'top-img img-hover' :'top-img'} src={props.url} alt={props.title}  />
                   </div>
                  <div className={hover ? 'hover-true' : 'top-overview'} onMouseEnter={hoverTrue} onMouseLeave={hoverFalse}> 
