@@ -216,34 +216,8 @@ export default function Header(props){
                <Link to='/myList' onClick={()=>setMenuSmall(false)}>My list</Link>
             </div>}
           </div>
-           {/* <div className='header-link'> */}
-                       {/* HOME */}
-          {/* {hoverHome ?
-          <div className='categorie-absolute-home' onMouseEnter={()=>setHoverHome(true)} onMouseLeave={()=>setHoverHome(false)}>
-             <Link to='/'className='link-home' >Home<i className="ri-arrow-down-s-line arrow-down"></i></Link>
-             <div className='ctn-button-home'>
-               <Link to='/' className='link-home' onClick={()=>props.movies()} ><Link to='/' className={props.value ?'movie' : 'tv'}></Link><Link to='/' className='button-link-home'>Movies</Link></Link>
-               <Link to='/tv' className='link-home' onClick={()=>props.series()}><Link to='/tv' className={props.value ?'tv' : 'movie'}></Link><Link to='/tv' className='button-link-home'>Series</Link></Link>
-             </div>
-          </div> 
-                :<div className='categorie-absolute-home' onMouseEnter={()=>setHoverHome(true)} onMouseLeave={()=>setHoverHome(false)}>
-                 <Link to='/'className='link-home' onClick={()=>props.click()}>Home<i className="ri-arrow-down-s-line arrow-down"></i></Link>
-                </div>}
-           { hover ?  <div className='categorie-absolute' onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
-            <Link to='#' style={{color:'white'}} onClick={()=>setHover(false)}>Categories</Link><i class="ri-arrow-up-s-line arrow-up"></i>
-            <div className='categories-description'>
-             {categoriesMap}
-            </div>                
-            </div> : 
-              <div className='categorie-absolute' onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}>
-              <Link to='#'>Categories</Link><i className="ri-arrow-down-s-line arrow-down"></i></div>}
-            <Link className='film-link' to='/film'>Film</Link>
-            <Link className='series-link' to='/series'>Series</Link>
-            <NavLink className='series' to='/myList'>My List</NavLink>
-           </div> */}
-                          {/* LOGO   */}
            <div className='header-title-ctn-small'>
-             <Link className='logo-small-small' to='/' onClick={()=>setMenuSmall(false)}><h1>My<span>rent</span></h1></Link>           
+             <Link className='logo-small-small' to='/' onClick={()=>setMenuSmall(false)}><h1>MyMovies</h1></Link>           
            </div>
                      {/* SEARCH  CART PROFILE */}             
            <div className='icon-header-profile'>
