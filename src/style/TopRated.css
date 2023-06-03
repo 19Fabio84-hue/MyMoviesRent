@@ -46,6 +46,23 @@
 .next-top:hover , .prev-top:hover{
   transform: scale(1.3);
 }
+@media(max-width:600px){
+    .prev-top{
+        font-size: 0.9rem;
+        height: 35px;
+        padding: 0px 8px 0px 8px;
+        left: 1px;
+        top: 40%;
+      }.next-top{
+        font-size: 1rem;
+        padding: 0px 8px 0px 8px;
+        height: 35px;
+        right: 1px;
+        top: 40%;
+      }.next-top:hover , .prev-top:hover{
+        transform: scale(1);
+      }
+}
   /* Description Category */
   .slide-movie-ctn{
     margin-top: 2em;
@@ -157,7 +174,7 @@
     .top-img-ctn{
         height: 150px;
     }.title-ctn-slide{
-       margin-bottom: -4em;
+       margin-bottom: -1em;
     }
   }
 

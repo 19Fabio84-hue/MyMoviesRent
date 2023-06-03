@@ -321,19 +321,19 @@ iframe{
 }
 @media(max-width:650px){
   .prev{
-    font-size: 1rem;
-    left: 5px;
-    top: 60%;
-    height: 40px;
+    font-size: 0.9rem;
+    height: 35px;
     padding: 0px 8px 0px 8px;
+    left: 1px;
+    top: 60%;
   }.next{
     font-size: 1rem;
     padding: 0px 8px 0px 8px;
-    height: 40px;
-    right: 5px;
+    height: 35px;
+    right: 1px;
     top: 60%;
   }.next:hover , .prev:hover{
-    transform: scale(1.1);
+    transform: scale(1);
   }
   .video-list{
     padding: 0 0em;
@@ -372,5 +372,7 @@ iframe{
   }.slide-movie-ctn-ActionAdventure{
     margin-top: -3em;
     margin-left: 0;
+  }.slide-title{
+    top:23%;
   }
 }

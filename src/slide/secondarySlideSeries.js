@@ -1,4 +1,4 @@
-import React , { useContext }  from 'react'
+import React , { useContext , useState , useEffect }  from 'react'
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -48,26 +48,100 @@ export default function SlideSecondarySeries(){
         </button>
       );
     }  
-  
+    const [slidesToShow, setSlidesToShow] = useState(5);
+    const [categoriesSlide ,setCategoriesSlide] = useState(5)
+    const [ topRatedSlide ,setTopRatedSlide] = useState(5)
+    const [handleCenterMode , setHandleCenterMode] = useState(true)
+    const [handlePadding , setHandlePadding] = useState('30px')
+    useEffect(() => {
+      const updateSlidesToShow = () => {
+        if(window.innerWidth <= 500){
+          setHandlePadding('45px')
+          setHandleCenterMode(true)
+          setSlidesToShow(1.05)
+          setCategoriesSlide(1.3)
+          setTopRatedSlide(2)
+        } else if(window.innerWidth <= 600){
+          setHandlePadding('35px')
+          setHandleCenterMode(true)
+          setSlidesToShow(2)
+          setCategoriesSlide(1.7)
+          setTopRatedSlide(2)
+        } else if (window.innerWidth <= 800) {
+          setHandleCenterMode(false)
+          setSlidesToShow(2);
+          setCategoriesSlide(2.2)
+          setTopRatedSlide(2.5)
+        } else if (window.innerWidth <= 1130) {
+          setHandleCenterMode(false)
+          setSlidesToShow(3)
+          setCategoriesSlide(3)
+          setTopRatedSlide(3)
+        }else if(window.innerWidth <=1380){
+          setTopRatedSlide(3.4)
+        } else if(window.innerWidth <= 1500){
+          setHandleCenterMode(false)
+          setSlidesToShow(3.8)
+          setCategoriesSlide(3.8)
+          setTopRatedSlide(3.8)
+        }else if(window.innerWidth <=1700){
+          setTopRatedSlide(4.3)
+        }
+        else{
+          setTopRatedSlide(5)
+          setSlidesToShow(5)
+          setCategoriesSlide(5)
+          setHandleCenterMode(true)
+        }  
+      
+      }    
+      // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+      window.addEventListener('resize', updateSlidesToShow);
+    
+      // Richiama la funzione di aggiornamento iniziale
+      updateSlidesToShow();
+    
+      // Rimuovi il listener quando il componente viene smontato
+      return () => {
+        window.removeEventListener('resize', updateSlidesToShow);
+      };
+      
+    }, [slidesToShow]);
     const settingsTopRated = {      
       pauseOnHover: true,
        dots: false,
        infinite: true,
        speed: 500,
-       slidesToShow: 5,
-       slidesToScroll: 4,
+       centerMode:false,
+       slidesToShow: topRatedSlide,
+       slidesToScroll: 3,
        autoplay: true,
        autoplaySpeed: 6500,
        prevArrow: <CustomPrevArrowTopRated  />,
        nextArrow: <CustomNextArrowTopRated  />
      }
-     const settingSlide = {
+  const settingSlide = {
       dots: false,
       infinite: true,   
       speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 4,
-      centerMode:true,
+      slidesToShow: slidesToShow,
+      slidesToScroll: 1,
+      centerPadding:handlePadding ,
+      centerMode:handleCenterMode,
+      autoplay: false,
+      autoplaySpeed: 6000,
+      heigth:400,
+      prevArrow: <CustomPrevArrowMovie />,
+      nextArrow: <CustomNextArrowMovie />
+    }  
+  const settingSlideCategories = {
+      dots: false,
+      infinite: true,   
+      speed: 500,
+      slidesToShow: categoriesSlide,
+      slidesToScroll: 1,
+      centerPadding:handlePadding ,
+      centerMode:handleCenterMode,
       autoplay: false,
       autoplaySpeed: 6000,
       heigth:400,
@@ -164,7 +238,7 @@ export default function SlideSecondarySeries(){
         <h1 className='title-slide-red'>My Movies<span className='span-slide'>rent</span></h1>
         <h1 className='toprated-title'>Categories</h1>                
         </div>
-          <Slider {...settingSlide} className='slider-class-movie' >
+          <Slider {...settingSlideCategories} className='slider-class-movie' >
            {categoriesMap} 
           </Slider>
         </div> 

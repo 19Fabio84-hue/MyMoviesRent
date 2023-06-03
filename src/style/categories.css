@@ -16,7 +16,47 @@
 .categories-ctn:hover{
     transform: scale(1.1);
 }
-
+@media(max-width:1800px){
+    .categories-ctn{
+        width: 310px;
+    }
+}
+@media(max-width:970px){
+    .categories-ctn{
+        width: 290px;
+        height: 150px;
+    }
+}
+@media(max-width:650px){
+    .categories-ctn{
+        width: 250px;
+        height: 150px;
+    }
+}
+@media(max-width:450px){
+    .categories-ctn{
+        width: 230px;
+        height: 140px;
+    }
+}
+@media(max-width:392px){
+    .categories-ctn{
+        width: 220px;
+        height: 130px;
+    }
+}
+@media(max-width:378px){
+    .categories-ctn{
+        width: 210px;
+        height: 120px;
+    }
+}
+@media(max-width:363px){
+    .categories-ctn{
+        width: 200px;
+        height: 120px;
+    }
+}
 .categories-ctn > h1 {
     color: #FFF;    
     margin-bottom: 1em;

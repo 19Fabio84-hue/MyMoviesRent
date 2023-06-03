@@ -77,7 +77,22 @@ function Movie(props){
                                         movie.name === 'Sci-Fi & Fantasy' ? 'Sci-Fi&Fantasy' :
                                         movie.name === 'War & Politics' ? 'War&Politics' :
                                          movie.name}</Link> )
-
+    
+    const [mobileInfo ,setMobileInfo] = useState(false)
+    useEffect(()=>{
+     const resizeInfo = ()=>{
+       if(window.innerWidth <= 700){
+         setMobileInfo(true)
+       } else {
+        setMobileInfo(false)
+       }
+      }
+      window.addEventListener('resize' , resizeInfo)
+      resizeInfo()
+      return () => {
+        window.removeEventListener('resize' , resizeInfo)
+      }
+    },[mobileInfo])
     return (           
                 <>                
                <div className={hover ? 'movie-top-ctn-hover' :'movie-top-ctn'} >
@@ -86,7 +101,11 @@ function Movie(props){
                             'vote-ctn-top black'  }><span className="vote-top">{props.vote}%</span>
                  </div> 
                  <div  className='top-img-ctn'  onMouseLeave={hoverFalse}>
-                            <img onMouseEnter={hoverTrue} className={hover? 'top-img img-hover' :'top-img'} src={props.url} alt={props.title}  />
+                {mobileInfo ? <Link to={`/${props.movie}/${props.id}`} state={props.state}>
+                    <img  className={hover? 'top-img img-hover' :'top-img'} src={props.url} alt={props.title}  />
+                  </Link> 
+                  : <img onMouseEnter={hoverTrue} className={hover? 'top-img img-hover' :'top-img'} src={props.url} alt={props.title}  />
+                  }
                   </div>
                  <div className={hover ? 'hover-true' : 'top-overview'} onMouseEnter={hoverTrue} onMouseLeave={hoverFalse}> 
                    <div className='top-padding-ctn'>

@@ -153,12 +153,23 @@
   position: relative;
     z-index: 232;
 }
+@media(max-width:890px){
+  .slide-movie-ctn-TopRated-topRated{
+    margin-top: -1em;
+    height: 550px;
+}
+}
 @media(max-width:650px){
   .slide-movie-ctn-ActionAdventure,.slide-movie-ctn-Animation,
   .slide-movie-ctn-TopRated ,.slide-movie-ctn-Crime,
   .slide-movie-ctn-Documentary,.slide-movie-ctn-Drama,
   .slide-movie-ctn-Family,.slide-movie-ctn-Fantasy,
-  .slide-movie-ctn-Horror{
+  .slide-movie-ctn-Horror,.slide-movie-ctn-Comedy{
     margin-top: -3em;
+  }.slide-movie-ctn-TopRated-topRated{
+    margin-top: 3em;
+    height: 450px;
+  }.slider-class-movie-topRated-big{
+    margin-top: 5em;
   }
 }

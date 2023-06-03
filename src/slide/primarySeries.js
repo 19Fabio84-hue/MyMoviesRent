@@ -1,4 +1,4 @@
-import React  from 'react'
+import React , {useState , useEffect} from "react";
 import Slider from "react-slick";
 import { Context } from '../context';
 import "slick-carousel/slick/slick.css";
@@ -7,6 +7,7 @@ import '../style/TopRated.css'
 import '../style/slideStyle.css'
 import VideoList from '../componentChild/slide';
 import '../style/header.css'
+
 
 export default function PrimarySlideSeries(){
     const { fullPopular} = React.useContext(Context)
@@ -26,30 +27,57 @@ export default function PrimarySlideSeries(){
           </button>
         );
       }
-    const settings = {
-      centerMode: true,
-      pauseOnHover: true,
-        dots: true,
-        appendDots: dots => (
-          <div
-            style={{
-              position:'relative' ,
-                marginTop:'-5em',
-                marginBottom:'10em'
-            }}
-          >
-            <ul style={{ margin: "0px" }}> {dots} </ul>
-          </div>
-        ),
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        prevArrow: <CustomPrevArrow  />,
-        nextArrow: <CustomNextArrow  />
-      }
+      const [handleCenterMode , setHandleCenterMode] = useState(true)
+      useEffect(() => {
+        const updateSlidesToShow = () => {
+          if(window.innerWidth <= 1500){
+            setHandleCenterMode(false)
+          } else{
+            setHandleCenterMode(true)
+          }
+          //  else {
+          //   setHandleCenterMode(true)
+          //   setSlidesToShow(5);
+          // }     
+        
+        }    
+        // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+        window.addEventListener('resize', updateSlidesToShow);
+      
+        // Richiama la funzione di aggiornamento iniziale
+        updateSlidesToShow();
+      
+        // Rimuovi il listener quando il componente viene smontato
+        return () => {
+          window.removeEventListener('resize', updateSlidesToShow);
+        };
+        
+      }, [handleCenterMode]);
+       
+      const settings = {
+         pauseOnHover: true,
+          dots: true,
+          appendDots: dots => (
+            <div
+              style={{
+                position:'relative' ,
+                  marginTop:'-5em',
+                  marginBottom:'10em'
+              }}
+            >
+              <ul style={{ margin: "0px" }}> {dots} </ul>
+            </div>
+          ),  
+          centerMode: handleCenterMode,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 6500,
+          prevArrow: <CustomPrevArrow  />,
+          nextArrow: <CustomNextArrow  />
+        }
       const popularMovie = fullPopular.filter(movie => movie.movie === 'tv')
      const slideMovie = popularMovie.map((movie , index )=> {
         return (
