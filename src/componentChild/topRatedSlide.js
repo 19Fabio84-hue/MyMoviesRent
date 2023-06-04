@@ -19,7 +19,7 @@ export default function TopRatedSlide(props){
 
     function hoverTrue(){
         setHover(true , 300 ) 
-        setHoverVideo(true,1000 )     
+        setHoverVideo(true,1000 ) 
       }
       function hoverFalse(){
          setHover(false , -300 )
@@ -63,10 +63,10 @@ export default function TopRatedSlide(props){
     return(
         <>
         <div className='topRated-slide-big' onMouseEnter={()=>hoverTrue()}  onMouseLeave={()=>hoverFalse()}>           
-           {hover ? <div className='topRated-list-ctn'  onMouseLeave={()=>hoverFalse()}>        
+           {hover ? <div className='topRated-list-ctn' onMouseLeave={()=>hoverFalse()}>        
                  <div className='list-overview-topRated' onMouseLeave={()=>hoverFalse()}> 
                    {hoverVideo ?<YouTube className={hover ? 'youtube-trailer-topRated margin-videos' :"youtube-trailer-topRated"}  videoId={`${getVideo.key}`} autoPlay={true} /> 
-                     : <img src={props.img} alt={props.title}  />}
+                     : <img  src={props.img} alt={props.title}  />}
                  <div className='list-padding-ctn-topRated' >
                   <div className='list-title-flex-topRated'>
                    <h1 className='list-title-topRated'>{props.title}</h1>

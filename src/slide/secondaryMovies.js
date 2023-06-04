@@ -45,6 +45,22 @@ export default function SlideSecondaryMovies(){
         </button>
       );
     }  
+    function CustomNextArrowCategories(props) {
+      const { onClick } = props;
+      return (
+        <button className="next-to-categories"  onClick={onClick} >
+          <i className="ri-arrow-right-s-line"></i>
+        </button>
+      );
+    }
+    function CustomPrevArrowCategories(props) {
+      const { onClick } = props;
+      return (
+        <button className="previous-categories" onClick={onClick}>
+          <i className="ri-arrow-left-s-line"></i>
+        </button>
+      );
+    }  
     // funzione cambio SlideToShow  
     const [slidesToShow, setSlidesToShow] = useState(5);
     const [categoriesSlide ,setCategoriesSlide] = useState(5)
@@ -57,7 +73,7 @@ export default function SlideSecondaryMovies(){
           setHandlePadding('45px')
           setHandleCenterMode(true)
           setSlidesToShow(1.05)
-          setCategoriesSlide(1.3)
+          setCategoriesSlide(1.1)
           setTopRatedSlide(2)
         } else if(window.innerWidth <= 600){
           setHandlePadding('35px')
@@ -77,13 +93,18 @@ export default function SlideSecondaryMovies(){
           setTopRatedSlide(3)
         }else if(window.innerWidth <=1380){
           setTopRatedSlide(3.4)
+          setHandlePadding('-10px')
         } else if(window.innerWidth <= 1500){
           setHandleCenterMode(false)
           setSlidesToShow(3.8)
           setCategoriesSlide(3.8)
           setTopRatedSlide(3.8)
+        }else if(window.innerWidth <=1600){
+          setTopRatedSlide(3.9)
+          setHandlePadding('-10px')
         }else if(window.innerWidth <=1700){
-          setTopRatedSlide(4.3)
+          setTopRatedSlide(4.1)
+          setHandlePadding('-10px')
         }
         else{
           setTopRatedSlide(5)
@@ -105,6 +126,7 @@ export default function SlideSecondaryMovies(){
       };
       
     }, [slidesToShow]);
+
     const settingsTopRated = {      
       pauseOnHover: true,
        dots: false,
@@ -143,8 +165,8 @@ export default function SlideSecondaryMovies(){
       autoplay: false,
       autoplaySpeed: 6000,
       heigth:400,
-      prevArrow: <CustomPrevArrowMovie />,
-      nextArrow: <CustomNextArrowMovie />
+      prevArrow: <CustomPrevArrowCategories />,
+      nextArrow: <CustomNextArrowCategories />
     }  
 
   
