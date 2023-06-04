@@ -3,16 +3,16 @@ import { useSearchParams } from 'react-router-dom'
 import { Context } from '../context'
 import TopRatePage from '../componentChild/toprate'
 import Header from '../componentChild/header'
-import useHover from './refHook'
 import '../style/myList.css'
 export default function Film(){
    const {finalArrayMoviesAndSeries , categoriesArray } = useContext(Context)
-   const [hover , ref] = useHover()
+   const [ hover , setHover] = useState(false)
    const arrayMovies = finalArrayMoviesAndSeries.filter(movie => movie.movie === 'Movie')
    let [searchParams , setSearchParams] = useSearchParams()
    const typeFilter = searchParams.get('type')
    const displayedMovies = typeFilter ? arrayMovies.filter(movie => movie.type === typeFilter) : arrayMovies
    const arrayFilteredType = displayedMovies.map((movie , index )=> {
+      
     return (
      <>
           {movie.poster_path && <TopRatePage 
@@ -35,11 +35,14 @@ export default function Film(){
            />}
       </> )
    })
-  
+   
    const categoriesMap = categoriesArray.map((movie) =>{
+      const setParamsAndHover = ()=> {
+         setSearchParams(`type=${movie.value}`)
+         setHover(!hover)
+      }
       return (
-
-      <button ref={ref} className={hover ?'button' : 'button-none'} onClick={()=>setSearchParams(`type=${movie.value}`)}>{movie.name}</button>
+      <button className={hover ?'button' : 'button-none'} onClick={setParamsAndHover}>{movie.name}</button>
       )
      })
      const [series ,setSeries] = useState(false)
@@ -48,8 +51,8 @@ export default function Film(){
     return (<>
        <Header movies={setMovie} series={setTv} value={series} />
      <div className='film-section'>
-         <div ref={ref} className={hover ? 'categories-movie':'categories-none' }>
-             <button ref={ref} onClick={()=>setSearchParams('.')} className={`${hover ? 'button' :'button-selected' } `}>
+         <div onClick={()=>setHover(!hover)} className={hover ? 'categories-movie':'categories-none' }>
+             <button  onClick={()=>setSearchParams('.')} className={`${hover ? 'button' :'button-selected' } `}>
                {hover === false ? `${typeFilter === null ? 'All' : typeFilter === 'ActionAdventure' ?  'Action & Adventure' :
                                       typeFilter === 'Fantasy'? 'Sci-Fi & Fantasy' :
                                        typeFilter === 'History' ? 'History & War' :

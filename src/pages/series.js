@@ -1,13 +1,12 @@
 import React, { useContext , useState } from 'react'
 import { useSearchParams} from 'react-router-dom'
 import { Context } from '../context'
-import useHover from './refHook'
 import TopRatePage from '../componentChild/toprate'
 import Header from '../componentChild/header'
 import '../style/myList.css'
 export default function Series(){
    const {finalArrayMoviesAndSeries , categoriesArray } = useContext(Context)
-   const [hover , ref] = useHover()
+   const [ hover , setHover] = useState(false)
    const arraySeries = finalArrayMoviesAndSeries.filter(movie => movie.movie==='tv')
    let [searchParams , setSearchParams] = useSearchParams()
    const typeFilter = searchParams.get('type')
@@ -33,8 +32,12 @@ export default function Series(){
    </> )
    })
    const categoriesMap = categoriesArray.map((movie,index) =>{
+      const setParamsAndHover = ()=> {
+         setSearchParams(`type=${movie.value}`)
+         setHover(!hover)
+      }
       return (
-      <button ref={ref} key={index} className={hover ?'button' : 'button-none'} onClick={()=>setSearchParams(`type=${movie.value}`)}>{movie.name}</button>
+      <button  key={index} className={hover ?'button' : 'button-none'} onClick={setParamsAndHover}>{movie.name}</button>
       )
      })
      const [series ,setSeries] = useState(false)
@@ -43,8 +46,8 @@ export default function Series(){
     return (<>
        <Header movies={setMovie} series={setTv} value={series} />
       <div className='film-section'>
-      <div ref={ref} className={hover ? 'categories-movie':'categories-none' }>
-          <button ref={ref} onClick={()=>setSearchParams('.')} className={`${hover ? 'button' :'button-selected' } `}>
+      <div onClick={()=>setHover(!hover)} className={hover ? 'categories-movie':'categories-none' }>
+          <button  onClick={()=>setSearchParams('.')} className={`${hover ? 'button' :'button-selected' } `}>
             {hover === false ? `${typeFilter === null ? 'All' : typeFilter === 'ActionAdventure' ?  'Action & Adventure' :
                                    typeFilter === 'Fantasy'? 'Sci-Fi & Fantasy' :
                                     typeFilter === 'History' ? 'History & War' :
