@@ -32,7 +32,7 @@
 }
 .menu-small-option{
     position: absolute;
-    bottom: -130px;
+    bottom: -175px;
     left: 0;
     z-index: 5500;
     background-color: var(--backGround);
@@ -46,7 +46,7 @@
 .menu-small-option > a{
     color: var(--color-link);
     font-weight: 600;
-    margin-bottom: .3em;
+    margin-bottom: 1em;
 }
 @media(max-width:800px){
     .icon-header-profile{
