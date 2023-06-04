@@ -67,6 +67,7 @@ export default function SlideSecondaryMovies(){
     const [ topRatedSlide ,setTopRatedSlide] = useState(5)
     const [handleCenterMode , setHandleCenterMode] = useState(true)
     const [handlePadding , setHandlePadding] = useState('30px')
+
     useEffect(() => {
       const updateSlidesToShow = () => {
         if(window.innerWidth <= 500){
@@ -107,7 +108,6 @@ export default function SlideSecondaryMovies(){
           setHandlePadding('-10px')
         }
         else{
-          setTopRatedSlide(5)
           setSlidesToShow(5)
           setCategoriesSlide(5)
           setHandleCenterMode(true)
@@ -126,7 +126,8 @@ export default function SlideSecondaryMovies(){
       };
       
     }, [slidesToShow]);
-
+    
+    
     const settingsTopRated = {      
       pauseOnHover: true,
        dots: false,
@@ -177,7 +178,7 @@ export default function SlideSecondaryMovies(){
      const categoriesMovie = categoriesArray.map((movie,index) => {
       return (
         <div key={index} className={`slide-movie-ctn-${movie.value}`}>
-        <div className='title-ctn-slide'>
+        <div className='title-ctn-slide' >
         <h1 className='title-slide-red'>My Movies<span className='span-slide'>rent</span></h1>
         <h1 className='toprated-title'>{movie.name}</h1>
         <Link to={`/${movie.id}`} className='toprated-link' >See more </Link>
@@ -185,23 +186,23 @@ export default function SlideSecondaryMovies(){
         </div>
           <Slider {...settingSlide}   className='slider-class-movie' >
             {movie.film.map((movie,index)=>{
-              return(
-                <Movie className='proviamo'
-                movie={'movie'}
-                key={index}
-                ids={movie.ids}
-                id={movie.id}
-                url={movie.poster_path === null ?`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`  : `https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                isFavorite={movie.isFavorite}
-                title={movie.title}
-                date={movie.release_date}
-                vote={movie.vote_average}
-                overview={ movie.overview }
-                genres={movie.genre_ids}
-                state={{search : null ,type:null ,name : null , title: 'Home'}}
-                 itemCart={{id : movie.id , isFavorite : movie.isFavorite , img : `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
-                            title : movie.title ,overview : movie.overview , vote : movie.vote_average , date : movie.release_date,
-                            price:2.99 ,quantity : 1 , movie:movie.movie }} />
+              return(               
+                  <Movie className='proviamo'
+                  movie={'movie'}
+                  key={index}
+                  ids={movie.ids}
+                  id={movie.id}
+                  url={movie.poster_path === null ?`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`  : `https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                  isFavorite={movie.isFavorite}
+                  title={movie.title}
+                  date={movie.release_date}
+                  vote={movie.vote_average}
+                  overview={ movie.overview }
+                  genres={movie.genre_ids}
+                  state={{search : null ,type:null ,name : null , title: 'Home'}}
+                   itemCart={{id : movie.id , isFavorite : movie.isFavorite , img : `https://image.tmdb.org/t/p/original/${movie.poster_path}`,
+                              title : movie.title ,overview : movie.overview , vote : movie.vote_average , date : movie.release_date,
+                              price:2.99 ,quantity : 1 , movie:movie.movie }} />
               )
             })}
           </Slider>
