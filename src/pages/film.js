@@ -6,7 +6,7 @@ import Header from '../componentChild/header'
 import useHover from './refHook'
 import '../style/myList.css'
 export default function Film(){
-   const {finalArrayMoviesAndSeries , categoriesArray } = useContext(Context)   
+   const {finalArrayMoviesAndSeries , categoriesArray } = useContext(Context)
    const [hover , ref] = useHover()
    const arrayMovies = finalArrayMoviesAndSeries.filter(movie => movie.movie === 'Movie')
    let [searchParams , setSearchParams] = useSearchParams()
