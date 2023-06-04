@@ -63,7 +63,6 @@ export default function Login(){
             </p>     
             </div>
             </div>
-            <img src='/images/loginMyRent.jpg' alt='Login Pages' />
         </div>
     )
 }

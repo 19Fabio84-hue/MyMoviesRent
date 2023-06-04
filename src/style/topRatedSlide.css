@@ -51,14 +51,16 @@
     border-radius: 20px;
 }
 .topRated-list-ctn{
-  width: 210%;
+  width: 215%;
     height: 100%;
     margin-left: -1px;
     position: relative;
     z-index: 500;
     transition: all 1.2s;
 }
-
+@media(max-width:500px){
+  .topRated-list-ctn{width: 240%;}
+}
 
 .list-overview-topRated-topRated{
     height: 100%;

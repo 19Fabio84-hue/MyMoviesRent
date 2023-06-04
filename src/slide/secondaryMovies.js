@@ -75,7 +75,7 @@ export default function SlideSecondaryMovies(){
           setHandleCenterMode(true)
           setSlidesToShow(1.05)
           setCategoriesSlide(1.1)
-          setTopRatedSlide(2)
+          setTopRatedSlide(2.05)
         } else if(window.innerWidth <= 600){
           setHandlePadding('35px')
           setHandleCenterMode(true)

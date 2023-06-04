@@ -334,6 +334,7 @@
 @media(max-width:460px){
     .trailer-info ,.info-generes > a , .slide-tagline,.info-unrent-span {display: none;}
     .info-rent{align-items: self-end;}.heart{margin-left: .5em;}
+    .link-come-back{margin-left: .5em;}
     .link-info-detail > button{font-size: 1.2rem;}
     .title-trailer-flex,.img-info {
         height: 375px;
@@ -342,6 +343,7 @@
     .title-trailer-flex > h1{
         font-size: 1.2rem;
     }.slide-title-ctn{
+        margin-left: .5em;
         padding: .5em;
     }.detail-ctn{
         padding-top: 30px;
