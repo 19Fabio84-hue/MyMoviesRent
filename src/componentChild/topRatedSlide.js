@@ -9,6 +9,7 @@ export default function TopRatedSlide(props){
     const {wishMovie , addToCart , removeToCart , CartMovie , addTowishMovie , removeTowishMovie} = useContext(Context)
     const [hover , setHover] = useDelayedState(false)
     const [hoverVideo ,setHoverVideo] = useDelayedState(false)
+    const [ iconTrue , setIconTrue] = useDelayedState(false)
     const [ getVideo , setGetVideo] = useState('')
    
     useEffect(()=>{
@@ -19,10 +20,12 @@ export default function TopRatedSlide(props){
 
     function hoverTrue(){
         setHover(true , 300 ) 
+        setIconTrue(true , 1000)
         setHoverVideo(true,1000 ) 
       }
       function hoverFalse(){
          setHover(false , -300 )
+         setIconTrue(false , -1000)
          setHoverVideo(false ,-1000 )
         }
     function cart(){
@@ -74,17 +77,18 @@ export default function TopRatedSlide(props){
           return () => {
             window.removeEventListener('resize' , resizeInfo)
           }
-        },[mobileInfo ])  
+        },[mobileInfo])  
 
     return(
         <>
         <div className='topRated-slide-big' onMouseEnter={()=>hoverTrue()}  onMouseLeave={()=>hoverFalse()}>           
-           {hover && mobileInfo === false ? <div className='topRated-list-ctn' onMouseLeave={()=>hoverFalse()}>        
+           {hover && mobileInfo === false ?
+            <div className='topRated-list-ctn' onMouseLeave={()=>hoverFalse()}>        
                  <div className='list-overview-topRated' onMouseLeave={()=>hoverFalse()}> 
                    {hoverVideo ?<YouTube onMouseLeave={()=>hoverFalse()} className={hover ? 'youtube-trailer-topRated margin-videos' :"youtube-trailer-topRated"}  videoId={`${getVideo.key}`} autoPlay={true} /> 
-                     : <img  src={props.img} alt={props.title}  />}
-                 <div className='list-padding-ctn-topRated' >
-                  <div className='list-title-flex-topRated'>
+                     : <img className='scale-img'  src={props.img} alt={props.title}  />}
+                 <div className={iconTrue &&'list-padding-ctn-topRated'} >
+                 {iconTrue && <div className='list-title-flex-topRated'>
                    <h1 className='list-title-topRated'>{props.title}</h1>
                   <div className='list-icon-ctn-topRated'>
                      {cart()}
@@ -95,7 +99,7 @@ export default function TopRatedSlide(props){
                     </Link>
                    </div>
                   </div>
-                 </div>                                 
+                 </div> }                                
                  </div>
                  </div>
              </div> : 
@@ -103,7 +107,7 @@ export default function TopRatedSlide(props){
                   {mobileInfo ? <Link to={`/${props.movie}/${props.id}`} state={props.state}>
                                  <img className='mobile-img' src={props.url} alt={props.title}   />
                               </Link>
-                   : <img src={props.url} alt={props.title}   />}
+                   : <img  src={props.url} alt={props.title}   />}
                </div>
                }
             

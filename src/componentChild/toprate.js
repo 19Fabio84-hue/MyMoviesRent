@@ -99,6 +99,7 @@ const resizeInfo = ()=>{
         return (
             
             <div className='prova' >
+              
             {hover ? <div className='list-ctn' >
                  <div className={props.vote >= 7.5 ? 'vote-ctn-list':props.vote >=6.7 ? 'vote-ctn-list green' :
                                  props.vote >= 5.9 ? 'vote-ctn-list yellow' : props.vote >=4.5 ? 'vote-ctn-list red' :
@@ -124,13 +125,13 @@ const resizeInfo = ()=>{
                   <div className='slide-link-genres'>
                             {generis}
                  </div>
-                  <p className='list-description'>{props.overview.slice(0 , 127)}...</p> 
+                  <p className='list-description'>{props.overview.slice(0 , 120)}...</p> 
                  </div>
                  </div>
              </div> : 
-                  <div className='list-ctn'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()}>
+                  <div className= {mobileInfo ?'list-ctn-mobile':'list-ctn'}  >
                       {mobileInfo ? <Link to={`/${props.movie}/${props.id}`} state={props.state}>
-                                <img className='list-img'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()} src={props.url} alt={props.title} />
+                                <img className='list-img'src={props.url} alt={props.title} />
                             </Link>
                      : <img className='list-img'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()} src={props.url} alt={props.title} />}
                  </div>

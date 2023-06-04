@@ -8,7 +8,6 @@ export default function GooglePay(){
         buttonType="buy"
         buttonLocale="en"
         buttonSizeMode="fill"
-        style={{width: 271, height: 57}}
         paymentRequest={{
           apiVersion: 2,
           apiVersionMinor: 0,

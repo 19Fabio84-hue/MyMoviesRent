@@ -130,18 +130,64 @@ import '../style/infoPages.css'
                             </button>
                           );
                         }
-                      const settings = {
-                          dots: false,
-                          infinite: true,
-                          speed: 2000,
-                          slidesToShow: 5,
-                          slidesToScroll: 4,
-                          autoplay: false,
-                          autoplaySpeed: 4000,
-                          heigth:400,
-                          prevArrow: <CustomPrevArrow />,
-                          nextArrow: <CustomNextArrow />
-                        }
+                        const [slidesToShow, setSlidesToShow] = useState(5);                 
+                        const [handleCenterMode , setHandleCenterMode] = useState(true)
+                   
+                       useEffect(() => {
+                         const updateSlidesToShow = () => {
+                           if(window.innerWidth <= 500){
+                             
+                             setHandleCenterMode(true)
+                             setSlidesToShow(1.05)
+                            
+                           } else if(window.innerWidth <= 600){
+                          
+                             setHandleCenterMode(true)
+                             setSlidesToShow(2)
+                       
+                           } else if (window.innerWidth <= 800) {
+                             setHandleCenterMode(false)
+                             setSlidesToShow(2);
+                         
+                           } else if (window.innerWidth <= 1130) {
+                             setHandleCenterMode(false)
+                             setSlidesToShow(3)
+                        
+                           } else if(window.innerWidth <= 1500){
+                             setHandleCenterMode(false)
+                             setSlidesToShow(3.8)
+                           }
+                           else{
+                             setSlidesToShow(5)
+                             setHandleCenterMode(true)
+                           }  
+                         
+                         }    
+                         // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+                         window.addEventListener('resize', updateSlidesToShow);
+                       
+                         // Richiama la funzione di aggiornamento iniziale
+                         updateSlidesToShow();
+                       
+                         // Rimuovi il listener quando il componente viene smontato
+                         return () => {
+                           window.removeEventListener('resize', updateSlidesToShow);
+                         };
+                         
+                       }, [slidesToShow]);
+                     const settings = {
+                         dots: false,
+                         infinite: true,
+                         speed: 2000,
+                         centerMode : handleCenterMode ,
+                         slidesToShow: slidesToShow,
+                         slidesToScroll: 4,
+                         autoplay: false,
+                         autoplaySpeed: 4000,
+                         heigth:400,
+                         prevArrow: <CustomPrevArrow />,
+                         nextArrow: <CustomNextArrow />
+                       }
                         const relatedMap = relatedseries.map(movie => { 
                           const votes = Number(movie.vote_average).toFixed(2)
                           return (
