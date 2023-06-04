@@ -40,44 +40,62 @@ export default function TopRatePage(props){
           </div>)
         }
     }
-    function heart(){
-        const isAdded = wishMovie.find(movie => movie.id === props.id)
-        if(isAdded){
-            return (<div className='top-shopping'>
-                    <i className="ri-heart-fill top-heart" 
-                     onClick={()=>removeTowishMovie(props.itemCart.id)} onMouseEnter={()=>sethoveredHeart(true)} onMouseLeave={()=>sethoveredHeart(false)}>
-                     </i>
-                     {hoveredHeart && <p className='top-remove top-remove-remove'>Remove</p>}
-                     </div>
-                     )
-                           }else {
-                            return (<div className='top-shopping'>
-                            <i className="ri-heart-line top-heart" 
-                             onClick={()=>addTowishMovie(props.itemCart)} onMouseEnter={()=>sethoveredHeart(true)} onMouseLeave={()=>sethoveredHeart(false)}>
-                             </i>
-                             {hoveredHeart && <p className='top-remove'>My List</p>}
-                            </div>
-                             )
-                           }
-                        }
-                        const generis = genresDetail.map((movie,index)=> 
-                        <Link className='link-page' key={index} to={`/${movie.id === 12 ? '28' :  
-                                                movie.id === 10759 ? '28' : 
-                                                movie.id === 878 ? '14' :
-                                                movie.id === 10765 ? '14':  
-                                                movie.id === 10752 ? '36' :  
-                                                 movie.id === 10768 ? '36' : 
-                                                 movie.id === 10762 ? '16' :  
-                                                 movie.id === 10763 ? '10402':
-                                                 movie.id === 10766 ? '10749'   :  
-                                                 movie.id === 10764 ? '10770' :
-                                                 movie.id === 10767 ? '10770' :                                                                           
-                                                movie.id}`}> 
-                      {movie.name === 'Action & Adventure'? 'Action' :  
-                       movie.name === 'Sci-Fi & Fantasy' ? 'Sci-Fi&Fantasy':
-                       movie.name === 'War & Politics' ? 'War&Politics' :
-                       movie.name === 'Science Fiction' ? 'Sci-Fi' :
-                        movie.name}</Link> )
+function heart(){
+  const isAdded = wishMovie.find(movie => movie.id === props.id)
+  if(isAdded){
+      return (<div className='top-shopping'>
+              <i className="ri-heart-fill top-heart" 
+                onClick={()=>removeTowishMovie(props.itemCart.id)} onMouseEnter={()=>sethoveredHeart(true)} onMouseLeave={()=>sethoveredHeart(false)}>
+                </i>
+                {hoveredHeart && <p className='top-remove top-remove-remove'>Remove</p>}
+                </div>
+                )
+                      }else {
+                      return (<div className='top-shopping'>
+                      <i className="ri-heart-line top-heart" 
+                        onClick={()=>addTowishMovie(props.itemCart)} onMouseEnter={()=>sethoveredHeart(true)} onMouseLeave={()=>sethoveredHeart(false)}>
+                        </i>
+                        {hoveredHeart && <p className='top-remove'>My List</p>}
+                      </div>
+                        )
+                      }
+                  }
+  const generis = genresDetail.map((movie,index)=> 
+  <Link className='link-page' key={index} to={`/${movie.id === 12 ? '28' :  
+                          movie.id === 10759 ? '28' : 
+                          movie.id === 878 ? '14' :
+                          movie.id === 10765 ? '14':  
+                          movie.id === 10752 ? '36' :  
+                            movie.id === 10768 ? '36' : 
+                            movie.id === 10762 ? '16' :  
+                            movie.id === 10763 ? '10402':
+                            movie.id === 10766 ? '10749'   :  
+                            movie.id === 10764 ? '10770' :
+                            movie.id === 10767 ? '10770' :                                                                           
+                          movie.id}`}> 
+{movie.name === 'Action & Adventure'? 'Action' :  
+  movie.name === 'Sci-Fi & Fantasy' ? 'Sci-Fi&Fantasy':
+  movie.name === 'War & Politics' ? 'War&Politics' :
+  movie.name === 'Science Fiction' ? 'Sci-Fi' :
+  movie.name}</Link> )
+
+
+const [mobileInfo ,setMobileInfo] = useState(false)
+useEffect(()=>{
+const resizeInfo = ()=>{
+  if(window.innerWidth <= 700){
+    setMobileInfo(true)
+  } else {
+    setMobileInfo(false)
+  }
+  }
+  window.addEventListener('resize' , resizeInfo)
+  resizeInfo()
+  return () => {
+    window.removeEventListener('resize' , resizeInfo)
+  }
+},[mobileInfo])
+   
         return (
             
             <div className='prova' >
@@ -86,8 +104,8 @@ export default function TopRatePage(props){
                                  props.vote >= 5.9 ? 'vote-ctn-list yellow' : props.vote >=4.5 ? 'vote-ctn-list red' :
                                  'vote-ctn-list black'  }><span className="vote-list">{props.vote}%</span>
                  </div>            
-                 <div className='list-overview'onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()}>
-                     <img className='list-img list-img-hover' src={props.url} alt={props.title} />
+                 <div className='list-overview'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()}>
+                     <img className='list-img list-img-hover' src={props.url} alt={props.title}  />
                  <div className='list-padding-ctn' onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()}>
                   <div className='list-title-flex'>
                   <h3 className='list-title'>{props.title}</h3>
@@ -111,7 +129,10 @@ export default function TopRatePage(props){
                  </div>
              </div> : 
                   <div className='list-ctn'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()}>
-                      <img className='list-img'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()} src={props.url} alt={props.title} />
+                      {mobileInfo ? <Link to={`/${props.movie}/${props.id}`} state={props.state}>
+                                <img className='list-img'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()} src={props.url} alt={props.title} />
+                            </Link>
+                     : <img className='list-img'  onMouseEnter={()=>hoverTrue()} onMouseLeave={()=>hoverFalse()} src={props.url} alt={props.title} />}
                  </div>
       }
           </div>

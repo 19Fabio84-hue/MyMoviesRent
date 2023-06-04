@@ -503,7 +503,7 @@ h1 > span{
 .profile-hover{
     position: absolute;
     bottom: -91px;
-    right: -42px;
+    right: -45px;
     background-color: rgb(28, 29, 34);
     padding: 30px;
     border-radius: 15px;

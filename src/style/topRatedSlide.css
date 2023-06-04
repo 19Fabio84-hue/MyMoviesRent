@@ -112,6 +112,11 @@
     height: 350px;
   }
 }
+.mobile-img{
+  border-radius: 20px;
+  width: 100%;
+  height: 350px;
+}
 .list-padding-ctn-topRated{
     position: absolute;
     bottom: 15%;

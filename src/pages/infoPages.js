@@ -242,7 +242,7 @@ export default function InfoMoviesPage(){
       {movieDetail ?
           <div className="video-preview info-ctn">
             {trailer ? <div className="slide-title-ctn info" > <div className='info-icon-flex'>
-              <button className='trailer-info trailer-info-leave' onClick={()=> setTrailer(!trailer)}>{trailer ? 'Leave' : 'Trailer'}</button>
+              {/* <button className='trailer-info trailer-info-leave' onClick={()=> setTrailer(!trailer)}>{trailer ? 'Leave' : 'Trailer'}</button> */}
             </div></div> : 
              <div className="slide-title-ctn info" >
               <div className='info-title-description'>
@@ -258,11 +258,13 @@ export default function InfoMoviesPage(){
             </div>
             </div>}
             {trailer ? <div className="img-ctn img-ctn-info" >
+            <button className='trailer-info trailer-info-leave' onClick={()=> setTrailer(!trailer)}>{trailer ? 'Leave' : 'Trailer'}</button>
               {getVideo ===undefined ? <h1 style={{color:'#FFF'}}>Sorry we no have trailer for this Movie</h1>
               : <YouTube className="youtube-trailer"  videoId={`${getVideo.key}`} autoPlay={true} ></YouTube> }             
             </div> : <div className="img-ctn img-ctn-info" >            
              <img className="img img-info" src={movieDetail.backdrop_path === null ?`https://image.tmdb.org/t/p/original/${movieDetail.poster_path}`  :`https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`} alt={movieDetail.title} />
-            </div>}            
+            </div>
+            }            
           </div> : <h1 style={{color:'red' , textAlign:'center' , marginTop:'3em'}}>Loading...</h1>  }
         </div>
             <div className='link-info-detail'>

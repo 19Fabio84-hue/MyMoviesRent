@@ -91,9 +91,12 @@
     cursor: pointer;
 }
 .trailer-info-leave{
+    font-size: 1.3rem;
     position:absolute;
-    bottom: 10%;
-    padding:7px 45px
+    bottom: 135px;
+    left: 40px;
+    padding:12px 45px;
+    z-index: 50;
 }
 .trailer-info:hover{
     color: #FFF;
@@ -309,7 +312,7 @@
 }
 
 @media(max-width:600px){
-    .img-info ,.slide-title-ctn {
+    .img-info ,.slide-title-ctn,.youtube-trailer {
     height: 450px;
    }.slide-title-ctn{
     width: 95%;

@@ -59,13 +59,30 @@ export default function TopRatedSlide(props){
                              )
                            }
                         }
-                
+
+        const [mobileInfo ,setMobileInfo] = useState(false)
+        useEffect(()=>{
+          const resizeInfo = ()=>{
+            if(window.innerWidth <= 700){
+              setMobileInfo(true)
+              setHover(false)
+            } else {
+            setMobileInfo(false)
+            }
+          }
+          window.addEventListener('resize' , resizeInfo)
+          resizeInfo()
+          return () => {
+            window.removeEventListener('resize' , resizeInfo)
+          }
+        },[mobileInfo , hover])  
+
     return(
         <>
         <div className='topRated-slide-big' onMouseEnter={()=>hoverTrue()}  onMouseLeave={()=>hoverFalse()}>           
-           {hover ? <div className='topRated-list-ctn' onMouseLeave={()=>hoverFalse()}>        
+           {hover && mobileInfo === false ? <div className='topRated-list-ctn' onMouseLeave={()=>hoverFalse()}>        
                  <div className='list-overview-topRated' onMouseLeave={()=>hoverFalse()}> 
-                   {hoverVideo ?<YouTube className={hover ? 'youtube-trailer-topRated margin-videos' :"youtube-trailer-topRated"}  videoId={`${getVideo.key}`} autoPlay={true} /> 
+                   {hoverVideo ?<YouTube onMouseLeave={()=>hoverFalse()} className={hover ? 'youtube-trailer-topRated margin-videos' :"youtube-trailer-topRated"}  videoId={`${getVideo.key}`} autoPlay={true} /> 
                      : <img  src={props.img} alt={props.title}  />}
                  <div className='list-padding-ctn-topRated' >
                   <div className='list-title-flex-topRated'>
@@ -83,8 +100,11 @@ export default function TopRatedSlide(props){
                  </div>
                  </div>
              </div> : 
-                <div className={hover? 'img-topRated-ctn margin-video' :'img-topRated-ctn'} onClick={() => props.prova(props.id)} >
-                <img src={props.url} alt={props.title}   />
+                <div className='list-overview-topRated' >
+                  {mobileInfo ? <Link to={`/${props.movie}/${props.id}`} state={props.state}>
+                                 <img className='mobile-img' src={props.url} alt={props.title}   />
+                              </Link>
+                   : <img src={props.url} alt={props.title}   />}
                </div>
                }
             

@@ -48,7 +48,7 @@ export default function Login(){
              <Link to='/'><h1 className='title-login'  >My Movies<span className='span-title'>rent</span></h1></Link>
             <div className='input-login-ctn'>
              <h2 style={{color:'#cf4d4d',zIndex:'4',textAlign:'center'}}>{location.state.message}</h2>
-                <p>email: bob@gmail.com ,  pasw: 1234</p>
+                <p>email: bob@gmail.com ,  pasw: a234</p>
                 <p>is active</p>
                 <p style={{color:'#cf4d4d' , fontWeight:'600'}}>{erroeMessage}</p>
                 <form className='form-login' >
