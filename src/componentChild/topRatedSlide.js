@@ -65,7 +65,6 @@ export default function TopRatedSlide(props){
           const resizeInfo = ()=>{
             if(window.innerWidth <= 700){
               setMobileInfo(true)
-              setHover(false)
             } else {
             setMobileInfo(false)
             }
@@ -75,7 +74,7 @@ export default function TopRatedSlide(props){
           return () => {
             window.removeEventListener('resize' , resizeInfo)
           }
-        },[mobileInfo , hover])  
+        },[mobileInfo ])  
 
     return(
         <>
