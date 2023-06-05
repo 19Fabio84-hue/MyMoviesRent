@@ -272,7 +272,7 @@ export default function CartPages(){
                         value={cvcValue}
                          />
                          {errorDate && <span style={{color:'red'}} className='error-span'>Error : date is incorrect</span>}
-                        {expiratinDateValue.length >= 3 && <p className='p-slash'>/</p>}
+                    
             </div> 
                                   {/* NAME  */}
             <div className='input-form-ctn' onClick={()=>setName(true)} onMouseLeave={()=>setName(false)}>
@@ -343,7 +343,7 @@ export default function CartPages(){
                 <hr></hr>
                <h1 className='total'>Total : {convertPrice(totalPrice)}</h1>  
                <div className='total-ctn'>     
-                <button className='place-order' onClick={()=>setGetPayement(!getPayement)}>Place Order</button>
+                <button className='place-order loading' onClick={()=>setGetPayement(!getPayement)}>Place Order</button>
                </div>
              </div>}              
         </div>
