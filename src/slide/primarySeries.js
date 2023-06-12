@@ -35,19 +35,13 @@ export default function PrimarySlideSeries(){
           } else{
             setHandleCenterMode(true)
           }
-          //  else {
-          //   setHandleCenterMode(true)
-          //   setSlidesToShow(5);
-          // }     
-        
+         
         }    
-        // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
-        window.addEventListener('resize', updateSlidesToShow);
       
-        // Richiama la funzione di aggiornamento iniziale
+        window.addEventListener('resize', updateSlidesToShow);
+
         updateSlidesToShow();
       
-        // Rimuovi il listener quando il componente viene smontato
         return () => {
           window.removeEventListener('resize', updateSlidesToShow);
         };

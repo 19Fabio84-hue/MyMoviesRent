@@ -38,7 +38,6 @@ export default function Login(){
         navigate(`${location.state.to}`)
     }
     useEffect(() => {
-        // Salvataggio dei dati nel localStorage quando l'array degli utenti cambia
         localStorage.setItem('users', JSON.stringify(users))
       }, [users])
 

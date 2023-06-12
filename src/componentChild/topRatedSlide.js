@@ -11,7 +11,7 @@ export default function TopRatedSlide(props){
     const [hoverVideo ,setHoverVideo] = useDelayedState(false)
     const [ iconTrue , setIconTrue] = useDelayedState(false)
     const [ getVideo , setGetVideo] = useState('')
-   
+    console.log(getVideo)
     useEffect(()=>{
         fetch(`https://api.themoviedb.org/3/${props.movie}/${props.id}/videos?api_key=efc42faadb8a20858df7818520bb9d80&language=en-US&name&append_to_response=videos`)
         .then(response => response.json())
@@ -85,12 +85,13 @@ export default function TopRatedSlide(props){
            {hover && mobileInfo === false ?
             <div className='topRated-list-ctn' onMouseLeave={()=>hoverFalse()}>        
                  <div className='list-overview-topRated' onMouseLeave={()=>hoverFalse()}> 
-                   {hoverVideo ?<YouTube onMouseLeave={()=>hoverFalse()} className={hover ? 'youtube-trailer-topRated margin-videos' :"youtube-trailer-topRated"}  videoId={`${getVideo.key}`} autoPlay={true} /> 
+                   {hoverVideo && getVideo !== undefined  ?<YouTube onMouseLeave={()=>hoverFalse()} className={hover ? 'youtube-trailer-topRated margin-videos' :"youtube-trailer-topRated"}
+                                  videoId={`${getVideo.key}`} autoPlay={true} /> 
                      : <img className='scale-img'  src={props.img} alt={props.title}  />}
-                 <div className={iconTrue &&'list-padding-ctn-topRated'} >
+                 <div className={iconTrue &&'list-padding-ctn-topRated'} onMouseEnter={()=>hoverTrue()}>
                  {iconTrue && <div className='list-title-flex-topRated'>
                    <h1 className='list-title-topRated'>{props.title}</h1>
-                  <div className='list-icon-ctn-topRated'>
+                  <div className='list-icon-ctn-topRated' >
                      {cart()}
                      {heart()}
                    <div className='list-shopping'>

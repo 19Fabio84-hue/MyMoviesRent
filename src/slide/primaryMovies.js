@@ -45,13 +45,11 @@ export default function PrimarySlideMovies(){
         // }     
       
       }    
-      // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+
       window.addEventListener('resize', updateSlidesToShow);
     
-      // Richiama la funzione di aggiornamento iniziale
       updateSlidesToShow();
-    
-      // Rimuovi il listener quando il componente viene smontato
+
       return () => {
         window.removeEventListener('resize', updateSlidesToShow);
       };

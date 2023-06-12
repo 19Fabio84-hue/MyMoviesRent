@@ -163,13 +163,9 @@ import '../style/infoPages.css'
                            }  
                          
                          }    
-                         // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
                          window.addEventListener('resize', updateSlidesToShow);
-                       
-                         // Richiama la funzione di aggiornamento iniziale
+
                          updateSlidesToShow();
-                       
-                         // Rimuovi il listener quando il componente viene smontato
                          return () => {
                            window.removeEventListener('resize', updateSlidesToShow);
                          };
@@ -243,7 +239,7 @@ import '../style/infoPages.css'
       {movieDetail ?
           <div key={movieDetail.id} className="video-preview info-ctn">
             {trailer ? <div className="slide-title-ctn info" > <div className='info-icon-flex'>
-              <button className='trailer-info trailer-info-leave' onClick={()=> setTrailer(!trailer)}>{trailer ? 'Leave' : 'Trailer'}</button>
+              {/* <button className='trailer-info trailer-info-leave' onClick={()=> setTrailer(!trailer)}>{trailer ? 'Leave' : 'Trailer'}</button> */}
             </div></div> : 
              <div className="slide-title-ctn info" >
               <div className='info-title-description'>
@@ -259,6 +255,7 @@ import '../style/infoPages.css'
             </div>
             </div>}
             {trailer ? <div className="img-ctn img-ctn-info" >
+            <button className='trailer-info trailer-info-leave' onClick={()=> setTrailer(!trailer)}>{trailer ? 'Leave' : 'Trailer'}</button>
               {getVideo ===undefined ? <h1 style={{color:'#FFF'}}>Sorry we no have trailer for this Movie</h1>
               : <YouTube className="youtube-trailer"  videoId={`${getVideo.key}`} autoPlay={true} ></YouTube> }             
             </div> : <div className="img-ctn img-ctn-info" >            

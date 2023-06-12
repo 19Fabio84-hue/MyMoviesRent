@@ -95,13 +95,11 @@ export default function SlideSecondarySeries(){
         }  
       
       }    
-      // Aggiungi un listener per rilevare i cambiamenti nella larghezza dello schermo
+    
       window.addEventListener('resize', updateSlidesToShow);
-    
-      // Richiama la funzione di aggiornamento iniziale
+
       updateSlidesToShow();
-    
-      // Rimuovi il listener quando il componente viene smontato
+
       return () => {
         window.removeEventListener('resize', updateSlidesToShow);
       };
@@ -114,7 +112,7 @@ export default function SlideSecondarySeries(){
        speed: 500,
        centerMode:false,
        slidesToShow: topRatedSlide,
-       slidesToScroll: 3,
+       slidesToScroll: 1,
        autoplay: true,
        autoplaySpeed: 6500,
        prevArrow: <CustomPrevArrowTopRated  />,
@@ -204,8 +202,7 @@ export default function SlideSecondarySeries(){
                 movie={'tv'}
                 key={index}
                 ids={movie.ids}
-                id={movie.id}
-                style={{ width: 'calc(100% / 10' }}                
+                id={movie.id}               
                 url={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                   img={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                 isFavorite={movie.isFavorite}
