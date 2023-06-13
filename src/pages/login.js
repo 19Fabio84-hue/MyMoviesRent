@@ -41,6 +41,12 @@ export default function Login(){
         localStorage.setItem('users', JSON.stringify(users))
       }, [users])
 
+    window.addEventListener('beforeunload', function() {
+    setUserActive('')
+    localStorage.removeItem('logout')
+    localStorage.removeItem('login')
+    });
+
     return(
         <div className='login-ctn'>
             <div className='title-ctn'> 
